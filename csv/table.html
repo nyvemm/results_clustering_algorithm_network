@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resultados dos Algoritmos de Agrupamento</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./../css/bootstrap.min.css" rel="stylesheet">
+  <link href="./../css/dataTables.bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container-fluid">
+
+    <h2>Coleções de Texto</h2>
+
+    <p>
+      Para a realização das avaliações experimentais, foram utilizadas 21 coleções de texto de diferentes domínios.
+    </p>
+	<a class="btn btn-primary" href="./../downloads/ClusteringData.zip"><i class="glyphicon glyphicon-download"></i> Download as ZIP</a>
+
+    <div id='table-container'></div>
+    
+
+  </div><!-- /.container -->
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="./../js/jquery.min.js"></script>
+  <script type="text/javascript" src="./../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./../js/jquery.csv.min.js"></script>
+  <script type="text/javascript" src="./../js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="./../js/dataTables.bootstrap.js"></script>
+  <script type="text/javascript" src="./../js/csv_to_html_table.js"></script>
+
+
+  <script type="text/javascript">
+    function format_link(link) {
+      if (link)
+        return "<a href='" + link + "' target='_blank'>" + link + "</a>";
+      else
+        return "";
+    }
+
+    CsvToHtmlTable.init({
+      csv_path: './../data/table.csv',
+      element: 'table-container',
+      allow_download: true,
+      csv_options: { separator: ',', delimiter: '"' },
+      datatables_options: { "paging": false },
+      custom_formatting: [[0, format_link]]
+    });
+  </script>
+</body>
+
+</html>
